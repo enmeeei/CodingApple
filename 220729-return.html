@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // <함수의 return 문법 & 소수점 다루기
+        // 풀이
+        function time(a, b) {
+            return ( a * 60 + b ) * 1000
+        }
+
+        // 해답
+
+        function 함수(a, b) {
+            var result = (a * 60 + b) * 1000;
+            return result
+        }
+
+        // 풀이
+        function sale(a, b) {
+            if (b == true) {
+                b = 1.5;
+            }
+            else {
+                b = 0;
+            }
+            let result = a * 0.9 - b;
+            result.toFixed(1);
+            return parseFloat(result);
+        }
+
+        // 해답
+        function gkatn(a, b) {
+            var result = a* 0.1;
+            if (b == true) {
+                result = result - 1.5;
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

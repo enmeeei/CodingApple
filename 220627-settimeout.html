@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMG</title>
+</head>
+<body>
+    <div class="alert timer">
+        <span id="time"></span>초 이내 구매시 무료!
+    </div>
+
+    <script>
+        // #time 안에 있는 숫자는 1초마다 하나씩 줄어듦. 
+        // 0이 되면 .alert timer는 사라져야함.
+
+        let timeCount = document.getElementById('time');
+        let alert = document.getElementsByClassName('alert timer');
+        let count = 6;
+        setInterval(timer, 1000);
+
+        function timer() {
+            count -= 1;
+            console.log(count);
+            if (count >= 0) {
+                timeCount.innerHTML = count;
+            } else if(count < 0 ){
+                clearTimeout(timer);
+                timeCount.style.visibility = 'hidden'; 
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+#alert {
+    display: none;
+    background: rgb(103, 103, 190);
+    color: rgb(52, 52, 139);
+    padding: 20px;
+    border-radius: 5px;
+}

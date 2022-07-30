@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            width: 400px;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1200px;
+            transform: translateX(0);
+            transition: all .5s ease-in-out;
+        }
+        .slide-box {
+            float: left;
+            width: 400px;
+            height: 300px;
+        }
+        .slide-box:nth-of-type(1) {
+            background-color: aquamarine;
+        }
+        .slide-box:nth-of-type(2) {
+            background-color: coral;
+        }
+        .slide-box:nth-of-type(3) {
+            background-color: blueviolet;
+        }
+        .slide-button {
+            display: flex;
+            flex-direction: row;
+            padding: 15px 0;
+            width: 100%; height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .pagination {
+            width: 12px; height: 12px;
+            background-color: cornflowerblue;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .pagination.active {
+            background-color: aqua;
+        }
+        .pagination + .pagination {
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="slide-container">
+            <div class="slide-box"></div>
+            <div class="slide-box"></div>
+            <div class="slide-box"></div>
+        </div>
+        <div class="slide-button">
+            <button type="button" class="pagination"></button>
+            <button type="button" class="pagination"></button>
+            <button type="button" class="pagination"></button>
+        </div>
+    </div>
+
+    <script>
+        let slideContainer = document.querySelector('.slide-container');
+        let slideBtn = document.querySelectorAll('.pagination');
+
+        function slideMove(slideBtnNum, e) {
+            let inactiveBtn = []; //인액티브 버튼[]이 있음
+            for (let i=0; i<3; i++){ //for문으로 i를 정의내리고
+                if (i!=slideBtnNum){ //액티브 버튼이 아닌 애들을
+                    inactiveBtn.push(i); // 인액티브 버튼[]에 i를 통해 추가ㅇ0ㅇ!!
+                    // 예를 들어 slideBtnNum가 1일 때, 나머지는 i!=2, i!=3이기 때문에, slideBtnNum[1]과 inacitveBtn[2, 3]이 되는거임.           
+                }
+            }
+            slideBtn[slideBtnNum].addEventListener('click', () => {
+                slideContainer.style.transform = e;
+                slideBtn[slideBtnNum].classList.add('active'); //그럼 slideBtn[1]에는 'active'클래스를 더해주고
+                for (let i=0; i<2; i++){ // slideBtn[1] 을 제외한
+                    slideBtn[inactiveBtn[i]].classList.remove('active'); //slideBtn[2], slideBtn[3]에는 'active'클래슬 빼주는거임.
+            }
+            });
+        }
+
+        slideMove(0, "translateX(0%)");
+        slideMove(1, "translateX(-33.33%)");
+        slideMove(2, "translateX(-66.66%)");
+
+    </script>
+</body>
+</html>
