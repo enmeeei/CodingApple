@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+        .tab {
+            margin: 30px;
+            width: 380px;
+            height: 240px;
+            border: 1px solid orange;
+        }
+        .btn-area {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid orange;
+        }
+        .tab-btn {
+            display: block;
+            padding: 10px 30px;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .tab-btn:hover {
+            background-color: rgb(255, 222, 160);
+        }
+        .tab-btn.active {
+            background-color: rgb(255, 222, 160);
+            font-weight: bold;
+        }
+        .desc-area {
+            position: relative;
+            width: 378px;
+            height: 200px;
+            background-color: aliceblue;
+        }
+        .desc {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            top: 0; left: 0;
+        }
+        .desc.active {
+            display: block;
+        }
+        .desc p {
+            text-align: center;
+         }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="btn-area">
+            <button type="button" class="tab-btn" data-tabNum="1">menu1</button>
+            <button type="button" class="tab-btn" data-tabNum="2">menu2</button>
+            <button type="button" class="tab-btn" data-tabNum="3">menu3</button>
+        </div>
+        <div class="desc-area">
+            <div class="desc active">
+                <p>description of menu1</p>
+            </div>
+            <div class="desc">
+                <p>description of menu2</p>
+            </div>
+            <div class="desc">
+                <p>description of menu3</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+            // const btn = document.querySelectorAll('button');
+            // let box = document.getElementsByClassName('desc');
+            
+            // function tab(activeNum) {
+            //     let inactiveBtn = [];
+            //     for(let i=0; i<3; i++){
+            //         if(i != activeNum) {
+            //             inactiveBtn.push(i);
+            //         }
+            //         btn[activeNum].addEventListener('click', () => {
+            //             btn[activeNum].classList.add('active');
+            //             box[activeNum].classList.add('active');
+            //             for(let i = 0; i < 2; i++) {
+            //                 btn[inactiveBtn[i]].classList.remove('active');
+            //                 box[inactiveBtn[i]].classList.remove('active');
+            //             }
+            //     })
+            //    }
+                // btn[activeNum].addEventListener('click', () => {
+                //     btn[activeNum].classList.add('active');
+                //     box[activeNum].classList.add('active');
+                //     for(let i = 0; i < 2; i++) {
+                //         btn[inactiveBtn[i]].classList.remove('active');
+                //         box[inactiveBtn[i]].classList.remove('active');
+                //     }
+                // })
+ 
+            //}
+        
+            // tab(0);
+            // tab(1);
+            // tab(2);
+
+            let tabBtns = document.querySelectorAll('.tab-btn');
+            let tabCont = document.querySelectorAll('.desc');
+
+            tabBtns.forEach(function(el) {
+                el.addEventListener('click', openTabs);
+            })
+
+            function openTabs(el) {
+                let btnTarget = el.currentTarget;
+                let tabNum = btnTarget.dataset.tabNum;
+
+                tabCont.forEach(function(el) {
+                    el.classList.remove('active');
+                })
+                tabBtns.forEach(function(el) {
+                    el.classList.remove('active');
+                })
+
+                document.querySelector('#' + tabNum).classList.add('active');
+                btnTarget.classList.add('active');
+            }
+
+
+    </script>
+</body>
+</html>
