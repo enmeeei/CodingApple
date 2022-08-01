@@ -9,7 +9,6 @@
             margin: 30px;
             width: 380px;
             height: 240px;
-            border: 1px solid orange;
         }
         .btn-area {
             display: flex;
@@ -55,58 +54,24 @@
 <body>
     <div class="tab">
         <div class="btn-area">
-            <button type="button" class="tab-btn" data-tabNum="1">menu1</button>
-            <button type="button" class="tab-btn" data-tabNum="2">menu2</button>
-            <button type="button" class="tab-btn" data-tabNum="3">menu3</button>
+            <button type="button" class="tab-btn" data-tabnum="tab1">menu1</button>
+            <button type="button" class="tab-btn" data-tabnum="tab2">menu2</button>
+            <button type="button" class="tab-btn" data-tabnum="tab3">menu3</button>
         </div>
         <div class="desc-area">
-            <div class="desc active">
+            <div class="desc active" id="tab1">
                 <p>description of menu1</p>
             </div>
-            <div class="desc">
+            <div class="desc" id="tab2">
                 <p>description of menu2</p>
             </div>
-            <div class="desc">
+            <div class="desc" id="tab3">
                 <p>description of menu3</p>
             </div>
         </div>
     </div>
 
     <script>
-
-            // const btn = document.querySelectorAll('button');
-            // let box = document.getElementsByClassName('desc');
-            
-            // function tab(activeNum) {
-            //     let inactiveBtn = [];
-            //     for(let i=0; i<3; i++){
-            //         if(i != activeNum) {
-            //             inactiveBtn.push(i);
-            //         }
-            //         btn[activeNum].addEventListener('click', () => {
-            //             btn[activeNum].classList.add('active');
-            //             box[activeNum].classList.add('active');
-            //             for(let i = 0; i < 2; i++) {
-            //                 btn[inactiveBtn[i]].classList.remove('active');
-            //                 box[inactiveBtn[i]].classList.remove('active');
-            //             }
-            //     })
-            //    }
-                // btn[activeNum].addEventListener('click', () => {
-                //     btn[activeNum].classList.add('active');
-                //     box[activeNum].classList.add('active');
-                //     for(let i = 0; i < 2; i++) {
-                //         btn[inactiveBtn[i]].classList.remove('active');
-                //         box[inactiveBtn[i]].classList.remove('active');
-                //     }
-                // })
- 
-            //}
-        
-            // tab(0);
-            // tab(1);
-            // tab(2);
-
             let tabBtns = document.querySelectorAll('.tab-btn');
             let tabCont = document.querySelectorAll('.desc');
 
@@ -116,8 +81,7 @@
 
             function openTabs(el) {
                 let btnTarget = el.currentTarget;
-                let tabNum = btnTarget.dataset.tabNum;
-
+                let tabnum = btnTarget.dataset.tabnum;
                 tabCont.forEach(function(el) {
                     el.classList.remove('active');
                 })
@@ -125,11 +89,9 @@
                     el.classList.remove('active');
                 })
 
-                document.querySelector('#' + tabNum).classList.add('active');
+                document.querySelector('#' + tabnum).classList.add('active');
                 btnTarget.classList.add('active');
             }
-
-
     </script>
 </body>
 </html>
