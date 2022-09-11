@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let 출석부 = ['흥민', '영희', '철수', '재석'];
+        
+        function findd(a) {
+            if(출석부.find(e => e == a)) {
+                console.log('correct');
+            } else {
+                console.log('wrong');
+            }
+        }
+        findd('명수');
+
+        function includess(q) {
+            if(출석부.includes(q)) {
+                console.log('correct');
+            } else {
+                console.log('wrong');
+            }
+        }
+        includess('재석');
+        
+        function times() {
+            for (let i = 2; i < 10; i++){
+                for (let a = 1; i < 10; i++) {
+                    console.log(a * i);
+                }
+            }
+        }
+        times();
+
+        function test(a, b) {
+            let result = 0;
+            for (let i = 0; i < a.length; i++) {
+                result = result + a[i]
+            }
+            let gap = b - (result / a.length);
+            if (gap > 0) {
+                console.log('축하드립니다.' + gap + '점이나 올랐네요.');
+            } else {
+                console.log('고생하셨습니다. 다음에는 '  + -gap +'점을 더 올려볼까요?');
+            }
+        }
+        test([40,50,60,70], 30);
+
+    </script>
+</body>
+</html>
